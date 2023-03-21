@@ -1,0 +1,10 @@
+python ./manage.py runserver
+
+python project/manage.py runserver
+
+django-admin startapp main
+
+django-admin startproject project
+
+
+python ./manage.py  migrate 
