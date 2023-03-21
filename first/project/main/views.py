@@ -4,7 +4,16 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    data = {
+        'title': 'Landing page',
+        'values': ['some','Hello','123'],
+        'obj': {
+            'car': 'BMW',
+            'age': 18,
+            'hobby': 'football'
+        }
+            }
+    return render(request, 'main/index.html', data)
 
 
 def about(request):

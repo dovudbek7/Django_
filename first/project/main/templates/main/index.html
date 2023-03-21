@@ -1,8 +1,27 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Landing page{% endblock %}
-
+{% block title %}{{ title }}{% endblock %}
+{{title}}
 {% block content %}
     <p>Landing page</p>
     {% include 'main/test.html' %}
+    {% for el in values %}
+    
+
+    {% filter lower  %}
+        <p>{{ el }}</p>
+    {% endfilter %} 
+    
+    {% if el == 'Hello'%}
+        <p>{{el|lower}}</p>
+    {% endif %}
+
+    {% endfor %}
+    {% comment %} {% for i in obj %}
+
+    <p>{{ i }}</p>
+
+{% endfor %} {% endcomment %}
+{% comment %} {{ obj.age }} {% endcomment %}
+
 {% endblock %}
