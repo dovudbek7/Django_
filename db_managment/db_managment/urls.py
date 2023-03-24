@@ -20,7 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_app.urls', namespace='main_app')),
     
-    path('post/', include('article.urls'), namespace='articles')
     
-    
+    path('posts/', include('articles.urls', namespace='articles')),
 ]

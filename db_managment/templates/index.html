@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-{% load satic %}
+{% load static %}
 
 {% block content %}
+<body>
     <script>
         if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
@@ -19,7 +20,7 @@
         <br>
         <br>
         <div class="container">
-            <h3>Courses</h3>
+            <h3 >Courses</h3>
             <h4>Add new course</h4>
             <form action="{% url 'main_app:add_course' %}" method="POST">
                 {% csrf_token %}
@@ -86,5 +87,4 @@
         </div>
     </main>
 
-  
 {% endblock %}
