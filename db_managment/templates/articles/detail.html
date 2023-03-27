@@ -6,22 +6,10 @@
         <h3 class="text-center">Posts</h3>
         <div class="my-5"></div>
         <div class="posts d-flex justify-content-center  align-items-center gap-5">
-            <h3>Categories</h3>
             
-                <ul class="list-group p-3 shadow">
-                    <li class="list-group-item fs-3">
-                        <h3>Categories</h3>
-                        {% for i in category %}
-                        <li class="list-group-item">
-                            <a href="{% url 'articles:category_list' cat.slug %}" class="list-group-link text-decoration-none fs-5">{{i.name}}</a>
-                        </li>
-                    </li>
-                </ul>
-                        {% endfor %}
-            {% for article in posts %}
             <div class="card p-3 shadow">
-                <h3>{{article.title}}</h3>
-                <p>{{article.body|truncatewords:'25'}}</p>
+                <h3>{{object.title}}</h3>
+                <p>{{object.body}}</p>
                 <p class="d-flex justify-content-around">
                     <a href="#" class="text-decoration-none">
                         <i class=""></i>
@@ -29,15 +17,14 @@
                     </a>
                     <a href="#" class="text-decoration-none">
                         <i class=""></i>
-                        {{article.published_date|date:'H:m'}}
+                        {{object.published_date}}
                     </a>
                     <a href="#" class="text-decoration-none">
                         <i class=""></i>
-                        {{article.published_date|date:'d M Y'}}
+                        {{object.published_date|date:'d M Y'}}
                     </a>
                 </p>
             </div>
-            {% endfor %}
 
 
         </div>

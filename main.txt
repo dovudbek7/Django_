@@ -15,3 +15,5 @@ python ./manage.py  migrate
 
 
 {% block content %} {% endblock %}
+
+python manage.py createsuperuser
