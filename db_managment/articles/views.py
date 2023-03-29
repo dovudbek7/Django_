@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from .models import *
 from . import utils
-# Create your views here.
 def all_articles_view(request):
     all_categories = Category.objects.all()
     all_posts = Article.objects.all()
