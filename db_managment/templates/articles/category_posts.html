@@ -1,0 +1,56 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+              
+                <ul class="list-group p-3 shadow">
+                    <li class="list-group-item fs-3">
+                        <h3>Categories</h3>
+                    </li>
+                    {% for cat in categories %}
+                    <li class="list-group-item">
+                        <a href="{% url 'articles:category_list' cat.slug %}" class="list-group-link text-decoration-none fs-5">
+                            {{cat.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+             
+            </div>
+            <div class="col-10">
+                <h3 class="text-center">Posts</h3>
+                <div class="my-5"></div>
+                <div class="posts d-flex justify-content-center align-items-center gap-5">
+                    {% for article in posts %}
+                    <div class="card p-3 shadow">
+                        <a href="{% url 'articles:detail' article.id %}">
+                            <h3>{{article.title}}</h3>
+                        </a>     
+                        <p>{{article.body|truncatewords:'25'}}</p>
+                        <p class="d-flex justify-content-around">
+                            <a href="#" class="text-decoration-none">
+                                <i class="fa-solid fa-user"></i>
+                                {{article.author}}
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <i class="fa-solid fa-clock"></i>
+                                {{article.published_date|date:'H:m'}}
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <i class="fa-solid fa-calendar"></i>
+                                {{article.published_date|date:'d M Y'}}
+                            </a>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</main>
+
+{% endblock %}
