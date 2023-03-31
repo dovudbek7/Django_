@@ -8,12 +8,13 @@ def check_article_view():
         return request.sesssion["read_articles"]
         
 def chek_article_view(request, article_id):
-    read_articles = check_read_articles(request)
-    if aricle_id in read_articles:
+    request.session.modified = True
+    a_list = check_read_articles(request)
+    if aricle_id in a_list:
         print("article read...")
         return False
     else:
-        request.session["read_articles"].append(article_id)
+        a_list.append(article_id)
         print("article views updtaed")
         return True
     

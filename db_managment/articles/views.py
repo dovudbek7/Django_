@@ -16,8 +16,13 @@ def all_articles_view(request):
 
         
 def post_detail(request,pk):
-    article = Article.objects.get(id=pk)
+    article = Article.objects.get(slug=article_slug)
     
+    if check_article_view(request,article.id):
+        article.views += 1
+        article.save()
+    else:
+        pass
     return render(request, 'articles/detail.html', context={"object":article})
 
 def category_list(request, category_slug):
