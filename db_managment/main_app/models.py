@@ -29,16 +29,4 @@ class Student(models.Model):
 
 
 
-class Rating(models.Model):
-    value = models.PositiveIntegerField(defaoult=0)
-    article = models.ForeignKey(Article,  on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    
-class Comment(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='post_comment')
-    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
-    comment = models.TextField()
-    
-    def __str__(self):
-        return str(self.name)
 

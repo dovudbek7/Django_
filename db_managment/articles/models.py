@@ -41,8 +41,11 @@ class Article(models.Model):
     
     @property
     def average_rating(self):
-        # print(self.rating_set.all().aggregate(Avg('value')))['value__avg']
-        return self.rating_set.all().aggregate(Avg('value'))['value__avg']
+        rating = self.rating_set.all().aggregate(Avg('value'))['value__avg']
+        if rating:
+            return rating
+        else:
+            return 0 
         
     
     def __str__(self):
@@ -60,6 +63,6 @@ class Comment(models.Model):
     comment = models.TextField()
     
     def __str__(self):
-        return str(self.user.username)
+        return str(self.article.slug)
     
     
